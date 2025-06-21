@@ -5,6 +5,11 @@
     <link rel="icon" href="/Carbon-Calculator/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carbon Calculator</title>
+
+    <!-- ✅ Add redirect script inside <head>, not above it -->
+    <script>
+      if (!location.hash) location.replace(location.pathname + '#/');
+    </script>
     <script type="module" crossorigin src="/Carbon-Calculator/assets/index-0f7e84bb.js"></script>
     <link rel="stylesheet" href="/Carbon-Calculator/assets/index-1bb2af21.css">
   </head>
