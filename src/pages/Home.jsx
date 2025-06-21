@@ -123,7 +123,7 @@ export default function Home() {
           </p>
           <div data-aos="fade-up" data-aos-delay="500">
             <a 
-              href="/Carbon-Calculator/#/calculator" 
+              href="#calculator" 
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
             >
               Calculate Your Footprint Now
