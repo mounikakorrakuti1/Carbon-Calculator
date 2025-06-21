@@ -13,10 +13,12 @@ export default function Home() {
       easing: 'ease-in-out-quad'
     });
 
+    // CO2 counter animation
     const co2Interval = setInterval(() => {
       setCo2Saved(prev => prev + Math.floor(Math.random() * 3));
     }, 2000);
 
+    // Testimonial carousel
     const testimonialInterval = setInterval(() => {
       setActiveTestimonial(prev => (prev + 1) % testimonials.length);
     }, 5000);
@@ -96,11 +98,120 @@ export default function Home() {
   return (
     <div className="min-h-screen text-gray-800">
       {/* Hero Section */}
-      {/* ... your Hero, Why it Matters, Features, Stats, etc. sections stay the same ... */}
+      <section className="relative flex items-center justify-center min-h-screen">
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center z-0" 
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.1.0&auto=format&fit=crop&w=1600&q=80')" }}
+        ></div>
+        
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h1 
+            className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            Measure Your <span className="text-green-300">Carbon Footprint</span>, <br />Reduce Your Impact
+          </h1>
+          <p 
+            className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto"
+            data-aos="fade-down"
+            data-aos-delay="300"
+          >
+            Join thousands of environmentally conscious individuals tracking and reducing their carbon emissions with our scientifically validated calculator.
+          </p>
+          <div data-aos="fade-up" data-aos-delay="500">
+            <a 
+              href="/calculator" 
+              className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
+            >
+              Calculate Your Footprint Now
+            </a>
+          </div>
+        </div>
+
+        <div 
+          className="absolute bottom-10 left-0 right-0 flex justify-center"
+          data-aos="fade-up"
+          data-aos-delay="700"
+        >
+          <a href="#why-it-matters" className="text-white animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      {/* Why It Matters Section */}
+      <section id="why-it-matters" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+              data-aos="fade-down"
+            >
+              Why Carbon Awareness Matters
+            </h2>
+            <div 
+              className="w-20 h-1 bg-green-500 mx-auto mb-8"
+              data-aos="fade-down"
+              data-aos-delay="100"
+            ></div>
+            <p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              The average person generates <span className="font-semibold">4.8 metric tons</span> of CO₂ annually. Small changes in daily habits can significantly reduce this impact when adopted collectively.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-green-500"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="text-green-500 mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Stats Section */}
+      <section className="py-20 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {impactStats.map((stat, index) => (
+              <div 
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-sm"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+              >
+                <div className="text-4xl font-bold text-green-600 mb-2">{stat.value}</div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CO2 Counter Section */}
       <section className="py-16 bg-gradient-to-r from-green-500 to-blue-600 text-white text-center">
-        <div className="max-w-4xl mx-auto px-6" data-aos="fade-up">
+        <div 
+          className="max-w-4xl mx-auto px-6"
+          data-aos="fade-up"
+        >
           <h3 className="text-2xl font-semibold mb-4">Collective Impact of Our Community</h3>
           <div className="text-5xl md:text-6xl font-extrabold mb-6">{co2Saved.toLocaleString()} kg</div>
           <p className="text-xl mb-8">CO₂ emissions saved through sustainable actions</p>
@@ -113,14 +224,118 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+              data-aos="fade-down"
+            >
+              Simple Three-Step Process
+            </h2>
+            <div 
+              className="w-20 h-1 bg-green-500 mx-auto mb-8"
+              data-aos="fade-down"
+              data-aos-delay="100"
+            ></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                step: "01",
+                title: "Calculate Your Footprint", 
+                description: "Enter details about your energy use, transportation, diet, and lifestyle habits.",
+                icon: "📊"
+              },
+              { 
+                step: "02",
+                title: "Understand Your Impact", 
+                description: "Receive a detailed breakdown of your carbon emissions by category.",
+                icon: "🔍"
+              },
+              { 
+                step: "03",
+                title: "Take Action", 
+                description: "Get personalized recommendations to reduce your environmental impact.",
+                icon: "🌱"
+              }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="relative bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-t-4 border-green-500 pt-12"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+              >
+                <div className="absolute -top-6 left-6 bg-green-500 text-white font-bold rounded-full w-12 h-12 flex items-center justify-center">
+                  {item.step}
+                </div>
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Eco Actions Section */}
+      <section className="py-20 bg-green-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+              data-aos="fade-down"
+            >
+              Simple Actions, Significant Impact
+            </h2>
+            <div 
+              className="w-20 h-1 bg-green-500 mx-auto mb-8"
+              data-aos="fade-down"
+              data-aos-delay="100"
+            ></div>
+            <p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              Small changes in daily routines can collectively make a tremendous difference to our planet.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-6">
+            {ecoActions.map((action, index) => (
+              <div 
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-sm text-center hover:shadow-md transition duration-300"
+                data-aos="flip-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="text-3xl mb-3">{action.icon}</div>
+                <h4 className="font-semibold mb-2">{action.action}</h4>
+                <p className="text-sm text-green-600">{action.impact}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800" data-aos="fade-down">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-6 text-gray-800"
+              data-aos="fade-down"
+            >
               What Our Users Say
             </h2>
-            <div className="w-20 h-1 bg-green-500 mx-auto mb-8" data-aos="fade-down" data-aos-delay="100"></div>
+            <div 
+              className="w-20 h-1 bg-green-500 mx-auto mb-8"
+              data-aos="fade-down"
+              data-aos-delay="100"
+            ></div>
           </div>
 
           <div className="relative h-64">
@@ -163,7 +378,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ...continue with CTA Section... */}
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-700 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 
+            className="text-3xl md:text-4xl font-bold mb-6"
+            data-aos="fade-down"
+          >
+            Ready to Reduce Your Carbon Footprint?
+          </h2>
+          <p 
+            className="text-xl mb-10 max-w-2xl mx-auto opacity-90"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            Join our community of environmentally conscious individuals making a difference every day.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up">
+            <a 
+              href="/calculator" 
+              className="bg-white text-green-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
+            >
+              Calculate Your Footprint
+            </a>
+            <a 
+              href="/learn" 
+              className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
