@@ -123,7 +123,7 @@ export default function Home() {
           </p>
           <div data-aos="fade-up" data-aos-delay="500">
             <a 
-              href="/calculator" 
+              href="/Carbon-Calculator/#/calculator" 
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
             >
               Calculate Your Footprint Now
@@ -396,7 +396,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up">
             <a 
-              href="/calculator" 
+              href="/Carbon-Calculator/#/calculator" 
               className="bg-white text-green-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
             >
               Calculate Your Footprint

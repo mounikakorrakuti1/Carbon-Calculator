@@ -462,7 +462,7 @@ export default function About() {
             
             <div className="text-center" data-aos="fade-up">
               <a 
-                href="/contact" 
+                href="#contact" 
                 className="inline-flex items-center text-green-600 font-semibold hover:text-green-800 transition px-6 py-3 border border-green-300 rounded-lg hover:bg-green-50"
               >
                 Contact Our Team
