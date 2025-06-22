@@ -121,7 +121,7 @@ export default function Home() {
           >
             Join thousands of environmentally conscious individuals tracking and reducing their carbon emissions with our scientifically validated calculator.
           </p>
-          <div data-aos="fade-up" data-aos-delay="500">
+          <div data-aos="fade-up" data-aos-delay="700">
             <a 
               href="#calculator" 
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
