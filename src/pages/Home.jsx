@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+
 
 export default function Home() {
   const [co2Saved, setCo2Saved] = useState(8542);
@@ -112,7 +114,7 @@ export default function Home() {
             data-aos="fade-down"
             data-aos-delay="100"
           >
-            Measure Your <span className="text-green-300">Carbon Footprint</span>, <br />Reduce Your Impact
+            Calculate <span className="text-green-300">Understand</span> <br />Reduce
           </h1>
           <p 
             className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto"
@@ -122,12 +124,11 @@ export default function Home() {
             Join thousands of environmentally conscious individuals tracking and reducing their carbon emissions with our scientifically validated calculator.
           </p>
           <div data-aos="fade-up" data-aos-delay="500">
-            <a 
-              href="#calculator" 
+            < Link to="/calculator" 
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105"
             >
               Calculate Your Footprint Now
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -136,11 +137,11 @@ export default function Home() {
           data-aos="fade-up"
           data-aos-delay="700"
         >
-          <a href="#why-it-matters" className="text-white animate-bounce">
+          <Link to="#why-it-matters" className="text-white animate-bounce">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -395,18 +396,16 @@ export default function Home() {
             Join our community of environmentally conscious individuals making a difference every day.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up">
-            <a 
-              href="/Carbon-Calculator/#/calculator" 
+            <Link to="/calculator" 
               className="bg-white text-green-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
             >
               Calculate Your Footprint
-            </a>
-            <a 
-              href="/learn" 
+            </Link>
+            <Link to="/learn" 
               className="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 font-semibold px-8 py-4 rounded-lg shadow-lg transition duration-300"
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </section>
